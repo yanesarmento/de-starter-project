@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div style="float:bottom; margin-left: 40px;">
+    <p><h1>{% block title %} Top 16 Rihanna's tracks {% endblock %}</h1></p>
+  </div>
+    {% for data in data %}
+        <div style="float:bottom; margin-left: 40px;" class='data'>
+            <h3>Song: #{{ data[0] }} -- Album: {{ data[1] }}</h3>
+            <p>Artist: {{ data[2] }}</p>
+            <p>Energy: {{ data[5] }}</p>
+            <p>ID: {{ data[7] }}</p>
+            
+              <a href="{{ url_for('updatesong', id=data[7]) }}">Edit</a>  
+              <input type = "hidden" name="method" value="EDIT">
+              <td><a href='deletesong/{{ data[7] }}'>Delete</a></td>
+        </form>
+
+            </form>
+        </div>
+    {% endfor %}
+   
+
+{% endblock %}
